@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+<script>
+jQuery(function($){
+   $("#defaultRegisterCEP").mask('99999-999');
+});
+</script>
+
+<head>
+    <title>Cadastro de Endereços</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!-- Default form register -->
+<form class="text-center border border-light p-5" action="#!0" style = "max-width:960px; margin:auto" th:action="@{/Endereco}" th:object="${endereco}">
+
+    <p class="h4 mb-4">Cadastro de Endereço</p>
+
+
+    <!-- CEP -->
+    <input type="text" id="defaultRegisterFormCEP" class="form-control cep-mask" placeholder="CEP" th:field="*{cep}">
+    <small id="defaultRegisterFormCEPHelpBlock" class="form-text text-muted mb-4">
+    	Digite um CEP no formato: xxxxx-xxx
+    </small>
+    
+    
+    <!-- Rua -->
+    <input type="text" id="rua" class="form-control" placeholder="Rua" th:field="*{rua}">
+
+    <!-- Bairro -->
+    <input type="text" id="bairro" class="form-control" placeholder="Bairro" th:field="*{bairro}">
+
+    <!-- Complemento -->
+    <input type="text" id="complemento" class="form-control" placeholder="Complemento" th:field="*{complemento}">
+    
+    <!-- Cidade -->
+    <input type="text" id="cidade" class="form-control" placeholder="Cidade" th:field="*{cidade}">
+    
+    <!-- Estado -->
+    <input type="text" id="estado" class="form-control" placeholder="Estado" th:field="*{estado}">
+
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Cadastrar</button>
+
+
+</form>
+<!-- Default form register -->
+</body>
+</html>

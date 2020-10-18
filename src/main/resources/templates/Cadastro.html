@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+<script>
+jQuery(function($){
+   $("#defaultRegisterNascimento").mask("99/99/9999");
+   $("#defaultRegisterFormCPF").mask("999.999.999-99");
+});
+</script>
+
+<head>
+    <title>Cadastro de Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!-- Default form register -->
+<form class="text-center border border-light p-5" style = "max-width:960px; margin:auto" method="POST" th:action="@{/Cadastro}" th:object="${clientePessoaFisica}">
+
+    <p class="h4 mb-4">Cadastro de Cliente</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+           <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome"  th:field="*{nome}">
+        </div>
+        <div class="col">
+            <!-- Last name -->
+            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Sobrenome"  th:field="*{sobrenome}">
+        </div>
+    </div>
+
+    <!-- E-mail -->
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"  th:field="*{email}">
+    
+    <!-- Data de Nascimento -->
+    <input type="text" id="defaultRegisterNascimento" class="form-control date-mask" placeholder="Data de Nascimento"  th:field="*{dataDeNascimento}">
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+        Formato DD/MM/AAAA
+    </small>
+    
+  
+
+    <!-- CPF -->
+    <input type="text" id="defaultRegisterFormCPF" class="form-control cpf-mask" placeholder="CPF"  th:field="*{cpf}">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    	Digite um CPF no formato: xxx.xxx.xxx-xx
+    </small>
+
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Cadastrar</button>
+
+
+</form>
+<!-- Default form register -->
+</body>
+</html>
